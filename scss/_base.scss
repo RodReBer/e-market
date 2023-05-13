@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$color: (
+  primary: #00a6fb,
+  background: #454545,
+);
+
+body {
+  background-color: map-get($color , background);
+}
+
+nav {
+  background-color: map-get($color, primary);
+}

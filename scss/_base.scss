@@ -6,13 +6,31 @@
 
 $color: (
   primary: #00a6fb,
-  background: #454545,
+  background: #ebebeb,
+  secondary:#0a75bd6a,
 );
 
 body {
   background-color: map-get($color , background);
 }
 
-nav {
-  background-color: map-get($color, primary);
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-box($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
 }

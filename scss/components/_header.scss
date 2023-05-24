@@ -1,0 +1,173 @@
+/*Start header*/
+
+nav {
+    width: 70%;
+}
+
+.header {
+    background-color: map-get($color, secondary);
+
+    @include flex-center();
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 20px;
+
+    & .container-search {
+        width: 70%;
+        display: flex;
+        gap: 10px;
+
+        &__container-logo {
+            width: 20%;
+            @include flex-center();
+
+            & a {
+                @include flex-center();
+            }
+
+            & img {
+                width: 50px;
+            }
+
+        }
+
+        &__form-header {
+            width: 80%;
+            @include flex-center();
+
+            &__input {
+                padding-left: 10px;
+                width: 70%;
+                height: 40px;
+                max-width: 1000px;
+                border-radius: 5px 0px 0px 5px;
+                -webkit-border-radius: 5px 0px 0px 5px;
+                -moz-border-radius: 5px 0px 0px 5px;
+                border: none;
+                border-top: 1.5px solid black;
+                border-bottom: 1.5px solid black;
+                border-left: 1.5px solid black;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            &__buttons {
+                display: flex;
+                gap: 10px;
+
+                &__button {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 0px 0px 0px 0px;
+                    -webkit-border-radius: 0px 0px 0px 0px;
+                    -moz-border-radius: 0px 0px 0px 0px;
+                    border: none;
+                    background-color: white;
+                    border-top: 1.5px solid black;
+                    border-right: 1.5px solid black;
+                    border-bottom: 1.5px solid black;
+                    border-left: 1.5px outset black;
+
+                    &:hover {
+                        background-color: rgb(202, 202, 202);
+                    }
+
+                    &__cart {
+                        width: 70px;
+                        height: 40px;
+                        border-radius: 0px 5px 5px 0px;
+                        -webkit-border-radius: 0px 5px 5px 0px;
+                        -moz-border-radius: 0px 5px 5px 0px;
+                        border: none;
+                        background-color: map-get($color, primary);
+                        border-top: 1.5px solid black;
+                        border-right: 1.5px solid black;
+                        border-bottom: 1.5px solid black;
+                        border-left: 1.5px solid black;
+
+
+                        &:hover {
+                            background-color: #00a7fb7a;
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+    & .items {
+        @include flex-box(space-around, center);
+        padding: 0;
+        margin: 0;
+
+        &__item {
+            padding: 10px 15px 1px 15px;
+
+            &:hover {
+                background-color: map-get($color , background);
+            }
+        }
+    }
+}
+
+.container-main {
+    padding-top: 20px;
+    @include flex-center();
+    gap: 20px;
+    flex-wrap: wrap;
+
+    & .card {
+        &:hover {
+            -webkit-box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .2), 0 1px 3px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .2), 0 1px 3px 0 rgba(0, 0, 0, .1);
+            cursor: pointer;
+
+            .card-text {
+                max-height: 500px;
+                /* Altura máxima del párrafo al pasar el mouse */
+            }
+        }
+
+        & .card-text {
+            overflow: hidden;
+            /* Oculta el contenido que desborda */
+            max-height: 0;
+            /* Altura predeterminada del párrafo */
+            transition: max-height 0.8s ease;
+            /* Agrega una transición suave */
+        }
+
+        & .card-body {
+            border-top: 1px solid rgba(51, 51, 51, .1);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:700px) {
+    .header .container-search__container-logo {
+        display: none;
+    }
+
+    .header .container-search__form-header {
+        width: 100%;
+    }
+
+}
+
+/*End header*/

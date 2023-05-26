@@ -1,9 +1,28 @@
 function saludar(nombre, apellido) {
   console.log("Hola! " + nombre + " " + apellido + " bienvendio!");
 }
+function contieneNumero(palabra) {
+  let flag = false;
+  for (let i = 0; i < palabra.length && !flag; i++) {
+    if (!isNaN(Number(palabra[i]))) {
+      flag = true;
+    }
+  }
+  return flag;
+}
+
+function mostrarBebidas() {
+  let bebidas = ["whisky", "vodka", "ron", "gin"];
+  console.log("¿Qué desea tomar?")
+  for (let i = 0; i < bebidas.length; i++) {
+    console.log(i + 1 + "- " + bebidas[i]);
+  }
+}
 
 function bebida(nombre) {
-  let bebida = prompt("¡Bienvenido a nuestra fiesta! ¿Qué bebida quieres tomar? (resultado en consola)");
+  let bebida = prompt(
+    "¡Bienvenido a nuestra fiesta! ¿Qué bebida quieres tomar? (resultado en consola)"
+  );
   switch (bebida) {
     case "whisky":
       let tipo = prompt("Que tipo de whisky quieres? (resultado en consola)");
@@ -58,10 +77,19 @@ function ingresar() {
   let edad;
   while (!flag) {
     nombre = prompt("¿Cómo te llamas? (resultado en consola)");
+    while (contieneNumero(nombre)) {
+      nombre = prompt(
+        "Ingresaste un dato invalido.¿Cómo te llamas? (resultado en consola)"
+      );
+    }
+
     apellido = prompt("¿Cuál es tu apellido? (resultado en consola)");
-    edad = parseInt(
-      prompt("¿Cuántos años tienes? (resultado en consola)")
-    );
+    while (contieneNumero(apellido)) {
+      apellido = prompt(
+        "Ingresaste un dato invalido.¿Cúal es tu apellido? (resultado en consola)"
+      );
+    }
+    edad = parseInt(prompt("¿Cuántos años tienes? (resultado en consola)"));
     while (isNaN(edad)) {
       edad = parseInt(
         prompt(
@@ -69,6 +97,7 @@ function ingresar() {
         )
       );
     }
+
     if (edad < 18) {
       console.log(
         "No aceptamos a personas menores a 18, volve en " +
@@ -80,6 +109,7 @@ function ingresar() {
     }
   }
   saludar(nombre, apellido);
+  mostrarBebidas();
   bebida(nombre);
 }
 

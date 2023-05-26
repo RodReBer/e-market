@@ -2,6 +2,8 @@
 
 nav {
     width: 70%;
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
 }
 
 .header {
@@ -56,6 +58,7 @@ nav {
             &__buttons {
                 display: flex;
                 gap: 10px;
+                text-align: center;
 
                 &__button {
                     width: 40px;
@@ -102,13 +105,45 @@ nav {
     }
 
     & .items {
-        @include flex-box(space-around, center);
+        @include flex-box(space-between, center);
         padding: 0;
         margin: 0;
-
+        gap: 10px;
+        & .crear-iniciar-sesion {
+            display: flex;
+            gap: 10px;
+        }
+        & .nav-link{
+            padding-bottom: 0;
+        }
         &__item {
-            padding: 10px 15px 1px 15px;
+            text-transform:  uppercase;
+            display: inline-block;
+            font-size: 15px;
+            color: #d3d3d3;
+            font-weight: 600;
+            letter-spacing: 2px;
+            position: relative;
+            transition: all 0.2s ease-in-out;
+            margin-bottom: 0;
+            &::after{
+                content: "";
+                position: absolute;
+                top: 0%;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                width: 0;
+                background-color: #555;
+                transition: all 0.2s ease-in-out;
 
+            }
+            &:hover{
+                color: #555;
+                &::after{
+                    width: 100%;
+                }
+            }
             &:hover {
                 background-color: map-get($color , background);
             }
@@ -116,47 +151,83 @@ nav {
     }
 }
 
-.container-main {
-    padding-top: 20px;
-    @include flex-center();
-    gap: 20px;
-    flex-wrap: wrap;
+.main {
+    display: flex;
+    margin-top: 10px;
+    & .aside{
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        & .filter-aside{
+            ul{
+                margin: 0;
+                padding: 0;
+            }
+            
+            & .minimum-maximum{
+                display: flex;
+                gap: 10px;
+                    input{
+                        width: 45%;
+                    }
+                
 
-    & .card {
-        &:hover {
-            -webkit-box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .2), 0 1px 3px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .2), 0 1px 3px 0 rgba(0, 0, 0, .1);
-            cursor: pointer;
-
-            .card-text {
-                max-height: 500px;
-                /* Altura máxima del párrafo al pasar el mouse */
             }
         }
+    }
 
-        & .card-text {
-            overflow: hidden;
-            /* Oculta el contenido que desborda */
-            max-height: 0;
-            /* Altura predeterminada del párrafo */
-            transition: max-height 0.8s ease;
-            /* Agrega una transición suave */
+    & .filter-container {
+
+        @include flex-box(center, end);
+        flex-direction: column;
+
+        & .filter-sort {
+            margin-right: 9vw;
         }
 
-        & .card-body {
-            border-top: 1px solid rgba(51, 51, 51, .1);
+        & .container-main {
+            @include flex-box(center, center);
+            gap: 20px;
+            flex-wrap: wrap;
+
+            max-width: 1400px;
+
+            & .card {
+                &:hover {
+                    -webkit-box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .2), 0 1px 3px 0 rgba(0, 0, 0, .1);
+                    box-shadow: 0 7px 16px 0 rgba(0, 0, 0, .2), 0 1px 3px 0 rgba(0, 0, 0, .1);
+                    cursor: pointer;
+                    transform: scale(1.01);
+
+                }
+
+                & .card-body {
+                    border-top: 1px solid rgba(51, 51, 51, .1);
+                }
+            }
         }
     }
+
 }
 
-
-
-
-
-
-
-
-
+@media (max-width: 1521px) {
+    nav{
+        width: 100%;
+    }
+}
+@media (max-width: 1200px) {
+    .items{
+        align-items: end !important; 
+    }
+    .container-fluid{
+        padding-right: 0 !important;
+    }
+    .items__item{
+        margin-right: 0 !important;
+        padding-right: 10px;
+    }
+}
 
 
 @media (max-width:700px) {

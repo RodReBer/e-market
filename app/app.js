@@ -44,7 +44,7 @@ function bebida(nombre) {
       break;
     case "vodka":
       let flag = false;
-      while (!false) {
+      while (!flag) {
         if (vodka != "smirnoff") {
           console.log("No tenemos ese smirnoff");
           flag = true;

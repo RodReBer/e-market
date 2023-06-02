@@ -20,7 +20,8 @@
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
-    <script src="app/app.js"></script>
+  <script src="app/app.js"></script>
+  <script src="../app/funciones.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://kit.fontawesome.com/9e08149179.js" crossorigin="anonymous"></script>
   <title>Document</title>
@@ -30,33 +31,40 @@
   <!-- Start Header -->
 
   <header class="header">
-    <div class="container-search">
-      <div class="container-search__container-logo">
-        <a href="/index.html"><img src="assets/img/logo.webp" alt="logo">Mercado autos</a>
-      </div>
-      <form class="container-search__form-header" action="submit" id="buscador">
-        <input class="container-search__form-header__input" type="search"
-          placeholder="Buscar productos, marcas y m&aacute;s...">
-        <div class="container-search__form-header__buttons">
-          <button class="container-search__form-header__buttons__button" type="submit">
-            <i class="fa-thin fa fa-magnifying-glass" style="color: #666;"></i>
-          </button>
-          <button class="container-search__form-header__buttons__button__cart btn btn-primary" type="button"
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
-              class="fa-sharp fa-light fa fa-cart-shopping" style="color: #ffffff;"></i></button>
-
+    <div class="contenedor-nav">
+      <div class="container-search">
+        <div class="container-search__container-logo">
+          <a href="/index.html"><img src="assets/img/logo.webp" alt="logo">Mercado autos</a>
         </div>
+        <form class="container-search__form-header" action="submit" id="buscador">
+          <input class="container-search__form-header__input" type="search"
+            placeholder="Buscar productos, marcas y m&aacute;s...">
+          <div class="container-search__form-header__buttons">
+            <button class="container-search__form-header__buttons__button" type="submit">
+              <i class="fa-thin fa fa-magnifying-glass" style="color: #666;"></i>
+            </button>
+            <button class="container-search__form-header__buttons__button__cart btn btn-primary" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+                class="fa-sharp fa-light fa fa-cart-shopping" style="color: #ffffff;"></i></button>
 
-      </form>
+          </div>
+
+        </form>
+
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <svg class="navbar-toggler-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+          stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+        </svg>
+
+      </button>
     </div>
-    <nav class="navbar navbar-expand-xl">
-      <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <nav class="navbar navbar-expand-xl">
+      <div class="container-fluid button-flex">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
           <ul class="items navbar-nav">
             <a href="" class="nav-link">
               <li class="items__item">Veh&iacute;culos</li>
@@ -70,32 +78,16 @@
             <a href="" class="nav-link">
               <li class="items__item">Deportes</li>
             </a>
-            <div class="crear-iniciar-sesion">
-              <a href="" class="nav-link">
-                <li class="items__item">Iniciar sesi&oacute;n</li>
-              </a>
-              <a href="" class="nav-link">
-                <li class="items__item">Crear cuenta</li>
-              </a>
-            </div>
+            <a href="./pages/login.html" class="nav-link">
+              <li class="items__item">Iniciar sesi&oacute;n</li>
+            </a>
+            <a href="./pages/login.html" class="nav-link">
+              <li class="items__item">Crear cuenta</li>
+            </a>
           </ul>
         </div>
       </div>
     </nav>
-    <!--<nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Pricing</a>
-          </div>
-        </div>
-      </div>
-    </nav> -->
 
   </header>
   <!-- Start Header -->
@@ -111,8 +103,8 @@
   <!-- Start main -->
   <main class="main">
     <aside class="aside">
-      <div class="filter-aside">
-        <h2>Precio</h2>
+      <div class="filter-aside precio">
+        <h2 class="title">Precio</h2>
         <ul>
           <li><a href="">Hasta $450.000</a></li>
           <li><a href="">$450.00 a $800.000</a></li>
@@ -126,41 +118,36 @@
         </ul>
       </div>
       <div class="filter-aside">
-        <h2>Ubicaci&oacute;n</h2>
-        <ul>
-          <li><a href="">Montevideo</a></li>
-          <li><a href="">Canelones</a></li>
-          <li><a href="">Maldonado</a></li>
-          <li><a href="">Colonia</a></li>
-          <li><a href="">San Jos&eacute;</a></li>
-          <li><a href="">Florida</a></li>
-          <li><a href="">Soriano</a></li>
-          <li><a href="">Salto</a></li>
-          <li><a href="">Paysand&uacute;</a></li>
-          <li><a href="">Treina y tres</a></li>
-          <li><a href="">Rocha</a></li>
-          <li><a href="">Artigas</a></li>
-          <li><a href="">Cerro largo</a></li>
-          <li><a href="">Flores</a></li>
-          <li><a href="">Rivera</a></li>
-          <li><a href="">Tacuaremb&oacute;</a></li>
-          <li><a href="">Lavalleja</a></li>
-          <li><a href="">Durazno</a></li>
-          <li><a href="">Rio Negro</a></li>
-
-
-
-
-        </ul>
+        <label for="departamento" class="title">Departamento</label>
+        <select id="departamento" class="entrada">
+          <option value="Artigas">Artigas</option>
+          <option value="Canelones">Canelones</option>
+          <option value="Cerro">Cerro Largo</option>
+          <option value="Colonia">Colonia</option>
+          <option value="Durazno">Durazno</option>
+          <option value="Flores">Flores</option>
+          <option value="Florida">Florida</option>
+          <option value="Lavalleja">Lavalleja</option>
+          <option value="Maldonado">Maldonado</option>
+          <option value="Montevideo" selected>Montevideo</option>
+          <option value="Paysandu">Paysandú</option>
+          <option value="RrioNegro">Río Negro</option>
+          <option value="Rivera">Rivera</option>
+          <option value="Rocha">Rocha</option>
+          <option value="Salto">Salto</option>
+          <option value="SanJose">San José</option>
+          <option value="Soriano">Soriano</option>
+          <option value="Ttacuarembo">Tacuarembó</option>
+          <option value="Treinta y Tres">Treinta y tres</option>
+        </select>
       </div>
-      <div class="filter-aside">
-        <h2>Condici&oacute;n</h2>
+      <div class="filter-aside condicion">
+        <h2 class="title">Condici&oacute;n</h2>
         <ul>
           <li><a href="">Nuevo</a></li>
           <li><a href="">Usado</a></li>
         </ul>
       </div>
-
     </aside>
     <section class="filter-container">
       <section class="filter-sort">

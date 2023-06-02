@@ -6,12 +6,15 @@ nav {
     padding-bottom: 0 !important;
 }
 
+.navbar {
+    padding: 0;
+}
+
 .header {
     background-color: map-get($color, secondary);
 
     @include flex-center();
     flex-direction: column;
-    padding-top: 20px;
     gap: 20px;
 
     & .container-search {
@@ -109,27 +112,32 @@ nav {
         padding: 0;
         margin: 0;
         gap: 10px;
+
         & .crear-iniciar-sesion {
-            display: flex;
-            gap: 10px;
+            @include flex-center();
+            flex-wrap: wrap;
+
         }
-        & .nav-link{
+
+        & .nav-link {
             padding-bottom: 0;
         }
+
         &__item {
-            text-transform:  uppercase;
+            text-transform: uppercase;
             display: inline-block;
             font-size: 15px;
-            color: #d3d3d3;
+            color: #535353;
             font-weight: 600;
             letter-spacing: 2px;
             position: relative;
             transition: all 0.2s ease-in-out;
             margin-bottom: 0;
-            &::after{
+
+            &::after {
                 content: "";
                 position: absolute;
-                top: 0%;
+                top: 100%;
                 left: 50%;
                 transform: translateX(-50%);
                 height: 2px;
@@ -138,12 +146,15 @@ nav {
                 transition: all 0.2s ease-in-out;
 
             }
-            &:hover{
+
+            &:hover {
                 color: #555;
-                &::after{
+
+                &::after {
                     width: 100%;
                 }
             }
+
             &:hover {
                 background-color: map-get($color , background);
             }
@@ -151,27 +162,44 @@ nav {
     }
 }
 
+.contenedor-nav {
+    width: 100%;
+    @include flex-center();
+    flex-direction: row;
+    padding-top: 20px;
+    gap: 20px;
+}
+
+
 .main {
     display: flex;
     margin-top: 10px;
-    & .aside{
+
+    & .aside {
         margin-left: 2rem;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        & .filter-aside{
-            ul{
+
+        & .filter-aside {
+            & .title {
+                color: black;
+                font-size: 2rem;
+            }
+
+            & ul {
                 margin: 0;
                 padding: 0;
             }
-            
-            & .minimum-maximum{
+
+            & .minimum-maximum {
                 display: flex;
                 gap: 10px;
-                    input{
-                        width: 45%;
-                    }
-                
+
+                input {
+                    width: 45%;
+                }
+
 
             }
         }
@@ -211,22 +239,63 @@ nav {
 
 }
 
+.navbar-toggler {
+    display: none;
+}
+
 @media (max-width: 1521px) {
-    nav{
+    nav {
         width: 100%;
     }
 }
+
 @media (max-width: 1200px) {
-    .items{
-        align-items: end !important; 
+    .navbar-toggler {
+        position: absolute;
+        right: 0;
+        margin-right: 2.5vw;
+        display: block;
     }
-    .container-fluid{
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+
+        & .aside {
+            flex-flow: row wrap;
+            @include flex-center();
+            border-bottom: 1px solid black;
+            margin-left: 0;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+
+
+            & .filter-aside {
+                @include flex-box(space-evenly, center);
+                width: 300px;
+                height: 145px;
+                flex-direction: column;
+                margin-left: 10px;
+                margin-right: 10px;
+
+            }
+        }
+    }
+
+    .container-fluid {
         padding-right: 0 !important;
     }
-    .items__item{
+
+    .items__item {
         margin-right: 0 !important;
         padding-right: 10px;
     }
+
+    .header {
+        display: flex;
+    }
+
 }
 
 

@@ -2,25 +2,21 @@ let sistema = new Sistema();
 window.addEventListener("load", inicio);
 
 function inicio() {
-    /*Verifico que el usuario y contraseña coinciden y lo meto, sino alerta*/
-    document.getElementById("ingresarButton").addEventListener("click", function () {
-        ingresarPersona(sistema);
+    document.getElementById("ingresarButton").addEventListener("click", function (e) {
+        e.preventDefault();
+        ingresarUsuario(sistema);
     });
 
 }
-
-
-function ingresarPersona(sistema) {
+function ingresarUsuario(sistema) {
     let formulario = document.getElementById("formLogin");
     if (formulario.reportValidity()) {
-        let usuario = document.getElementById("usuario").value;
-        let contraseña = document.getElementById("contraseña").value;
-        for (const persona of sistema.listaPersonas) {
-            if (persona.usuario === usuario && persona.contraseña === contraseña) {
-                alert("ingresado exitosamente");
-            } else {
-                alert("datos incorrectos");
-            }
+        let UsuarioInp = document.getElementById("Usuario").value;
+        let contraseñaInp = document.getElementById("contraseña").value;
+        if (sistema.estaUsuario(UsuarioInp, contraseñaInp)) {
+            window.location.href = '../index.html';
+        }else{
+            alert("Datos incorrectos");
         }
     }
 }

@@ -100,7 +100,7 @@
 
 //     if (edad < 18) {
 //       console.log(
-//         "No aceptamos a personas menores a 18, volve en " +
+//         "No aceptamos a Usuarios menores a 18, volve en " +
 //           (18 - edad) +
 //           " años"
 //       );

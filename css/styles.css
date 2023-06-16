@@ -10,7 +10,6 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 ul {
@@ -36,31 +35,37 @@ nav {
   flex-direction: column;
   gap: 20px;
 }
+
 .header .container-search {
   width: 70%;
   display: flex;
   gap: 10px;
 }
+
 .header .container-search__container-logo {
   width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .header .container-search__container-logo a {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .header .container-search__container-logo img {
   width: 50px;
 }
+
 .header .container-search__form-header {
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .header .container-search__form-header__input {
   padding-left: 10px;
   width: 70%;
@@ -74,14 +79,17 @@ nav {
   border-bottom: 1.5px solid black;
   border-left: 1.5px solid black;
 }
+
 .header .container-search__form-header__input:focus {
   outline: none;
 }
+
 .header .container-search__form-header__buttons {
   display: flex;
   gap: 10px;
   text-align: center;
 }
+
 .header .container-search__form-header__buttons__button {
   width: 40px;
   height: 40px;
@@ -95,9 +103,11 @@ nav {
   border-bottom: 1.5px solid black;
   border-left: 1.5px outset black;
 }
+
 .header .container-search__form-header__buttons__button:hover {
   background-color: rgb(202, 202, 202);
 }
+
 .header .container-search__form-header__buttons__button__cart {
   width: 70px;
   height: 40px;
@@ -111,9 +121,11 @@ nav {
   border-bottom: 1.5px solid black;
   border-left: 1.5px solid black;
 }
+
 .header .container-search__form-header__buttons__button__cart:hover {
   background-color: rgba(0, 167, 251, 0.4784313725);
 }
+
 .header .items {
   display: flex;
   justify-content: space-between;
@@ -122,15 +134,18 @@ nav {
   margin: 0;
   gap: 10px;
 }
+
 .header .items .crear-iniciar-sesion {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .header .items .nav-link {
   padding-bottom: 0;
 }
+
 .header .items__item {
   text-transform: uppercase;
   display: inline-block;
@@ -142,6 +157,7 @@ nav {
   transition: all 0.2s ease-in-out;
   margin-bottom: 0;
 }
+
 .header .items__item::after {
   content: "";
   position: absolute;
@@ -153,12 +169,15 @@ nav {
   background-color: #555;
   transition: all 0.2s ease-in-out;
 }
+
 .header .items__item:hover {
   color: #555;
 }
+
 .header .items__item:hover::after {
   width: 100%;
 }
+
 .header .items__item:hover {
   background-color: #ebebeb;
 }
@@ -177,36 +196,44 @@ nav {
   display: flex;
   margin-top: 10px;
 }
+
 .main .aside {
   margin-left: 2rem;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .main .aside .filter-aside .title {
   color: black;
   font-size: 2rem;
 }
+
 .main .aside .filter-aside ul {
   margin: 0;
   padding: 0;
 }
+
 .main .aside .filter-aside .minimum-maximum {
   display: flex;
   gap: 10px;
 }
+
 .main .aside .filter-aside .minimum-maximum input {
   width: 45%;
 }
+
 .main .filter-container {
   display: flex;
   justify-content: center;
   align-items: end;
   flex-direction: column;
 }
+
 .main .filter-container .filter-sort {
   margin-right: 9vw;
 }
+
 .main .filter-container .container-main {
   display: flex;
   justify-content: center;
@@ -215,12 +242,14 @@ nav {
   flex-wrap: wrap;
   max-width: 1400px;
 }
+
 .main .filter-container .container-main .card:hover {
   -webkit-box-shadow: 0 7px 16px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 7px 16px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transform: scale(1.01);
 }
+
 .main .filter-container .container-main .card .card-body {
   border-top: 1px solid rgba(51, 51, 51, 0.1);
 }
@@ -234,6 +263,7 @@ nav {
     width: 100%;
   }
 }
+
 @media (max-width: 1200px) {
   .navbar-toggler {
     position: absolute;
@@ -241,11 +271,13 @@ nav {
     margin-right: 2.5vw;
     display: block;
   }
+
   .main {
     display: flex;
     flex-direction: column;
     margin: 0;
   }
+
   .main .aside {
     flex-flow: row wrap;
     display: flex;
@@ -256,6 +288,7 @@ nav {
     margin-bottom: 10px;
     padding-bottom: 10px;
   }
+
   .main .aside .filter-aside {
     display: flex;
     justify-content: space-evenly;
@@ -266,25 +299,31 @@ nav {
     margin-left: 10px;
     margin-right: 10px;
   }
+
   .container-fluid {
     padding-right: 0 !important;
   }
+
   .items__item {
     margin-right: 0 !important;
     padding-right: 10px;
   }
+
   .header {
     display: flex;
   }
 }
+
 @media (max-width: 700px) {
   .header .container-search__container-logo {
     display: none;
   }
+
   .header .container-search__form-header {
     width: 100%;
   }
 }
+
 /*End header*/
 
 /*# sourceMappingURL=styles.css.map */

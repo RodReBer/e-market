@@ -26,19 +26,20 @@ function crearCuenta(sistema) {
             case espacio(apellido):
                 alert("El apellido no puede contener espacios")
                 valido = false;
+                break;
             case espacio(usuario):
                 alert("El usuario no puede contener espacios")
-                valido = false;
-            case valido:
-                if (sistema.cedulaRepetida(cedula)) {
-                    alert("Cedula repetida");
-                    valido = false;
-                }
-
+                valido = false
+                break;
         }
         if (valido) {
-            let nuevoUsuario = new Usuario(nombre, apellido, cedula, contraseña, usuario);
-            sistema.agregarUsuario(nuevoUsuario);
+            if (sistema.cedulaRepetida(cedula)) {
+                alert("Cedula repetida");
+                valido = false;
+            } else {
+                let nuevoUsuario = new Usuario(nombre, apellido, cedula, contraseña, usuario);
+                sistema.agregarUsuario(nuevoUsuario);
+            }
         }
     }
 }

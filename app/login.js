@@ -11,12 +11,6 @@ function inicio() {
 function ingresarUsuario(sistema) {
     let formulario = document.getElementById("formLogin");
     if (formulario.reportValidity()) {
-        let UsuarioInp = document.getElementById("Usuario").value;
-        let contraseñaInp = document.getElementById("contraseña").value;
-        if (sistema.estaUsuario(UsuarioInp, contraseñaInp)) {
-            window.location.href = '../index.html';
-        }else{
-            alert("Datos incorrectos");
-        }
+        sistema.estaUsuario(document.getElementById("Usuario").value, document.getElementById("contraseña").value) ? window.location.href = '../index.html' : console.log("Datos incorrectos");
     }
 }

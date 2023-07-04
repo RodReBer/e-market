@@ -44,10 +44,10 @@ class Sistema {
   guardarUsuarios() {
     localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios));
   }
-  agregarUsuario(unaUsuario) {
-    this.listaUsuarios.push(unaUsuario);
+  agregarUsuario(unUsuario) {
+    this.listaUsuarios.push(unUsuario);
     this.guardarUsuarios();
-    console.log('Usuario agregada:', unaUsuario);
+    console.log('Usuario agregado:', unUsuario);
   }
   recuperarUsuarios() {
     const listaUsuariosString = localStorage.getItem('listaUsuarios');
@@ -113,11 +113,23 @@ class Producto {
 
 class Carrito {
   constructor() {
-    this.productos = [];
-  }
+    this.productosCarrito = [];
+    this.recuperarCarrito();
 
-  agregarProducto(producto) {
-    this.productos.push(producto);
+  }
+  guardarCarrito() {
+    localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios));
+  }
+  agregarProductoCarrito(producto) {
+    this.productosCarrito.push(producto);
+    this.guardarCarrito();
+    console.log('Producto agregado:', producto);
+  }
+  recuperarCarrito() {
+    const listaProductosCarrito = localStorage.getItem('productosCarrito');
+    if (listaProductosCarrito) {
+      this.productosCarrito = JSON.parse(listaProductosCarrito);
+    }
   }
 
   eliminarProducto(nombreProducto) {

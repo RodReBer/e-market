@@ -2,7 +2,6 @@ let sistema = new Sistema();
 window.addEventListener("load", inicio);
 
 function inicio() {
-    /*verificar que la cedula no este repetida*/
     document.getElementById("agregarBoton").addEventListener("click", function (e) {
         e.preventDefault();
         crearCuenta(sistema);
@@ -20,34 +19,24 @@ function crearCuenta(sistema) {
         let valido = true;
         switch (valido) {
             case espacio(nombre):
-                alert("El nombre no puede contener espacios");
+                console.log("El nombre no puede empezar con espacios");
                 valido = false;
                 break;
             case espacio(apellido):
-                alert("El apellido no puede contener espacios")
+                console.log("El apellido no puede empezar con espacios")
                 valido = false;
                 break;
             case espacio(usuario):
-                alert("El usuario no puede contener espacios")
+                console.log("El usuario no puede empezar con espacios")
                 valido = false
                 break;
         }
         if (valido) {
-            if (sistema.cedulaRepetida(cedula)) {
-                alert("Cedula repetida");
-                valido = false;
-            } else {
-                let nuevoUsuario = new Usuario(nombre, apellido, cedula, contraseña, usuario);
-                sistema.agregarUsuario(nuevoUsuario);
-            }
+            sistema.cedulaRepetida(cedula) ? (console.log("Cedula repetida"), valido = false) : sistema.agregarUsuario(new Usuario(nombre, apellido, cedula, contraseña, usuario));
         }
     }
 }
 
 function espacio(palabra) {
-    let flag = false;
-    if (palabra[0] == " " || palabra[palabra.length] == " ") {
-        flag = true;
-    }
-    return flag;
+    return palabra.startsWith(" ") || palabra.endsWith(" ");
 }

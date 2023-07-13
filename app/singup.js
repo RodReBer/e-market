@@ -32,7 +32,12 @@ function crearCuenta(sistema) {
                 break;
         }
         if (valido) {
-            sistema.cedulaRepetida(cedula) ? (console.log("Cedula repetida"), valido = false) : sistema.agregarUsuario(new Usuario(nombre, apellido, cedula, contraseña, usuario));
+            sistema.cedulaRepetida(cedula) ? (Swal.fire({
+                title: "Cedula repetida",
+                text: "Ingrese otra cedula",
+                icon: "error",
+                confirmButtonText: "Aceptar",
+            }), valido = false) : sistema.agregarUsuario(new Usuario(nombre, apellido, cedula, contraseña, usuario));
         }
     }
 }
@@ -40,3 +45,4 @@ function crearCuenta(sistema) {
 function espacio(palabra) {
     return palabra.startsWith(" ") || palabra.endsWith(" ");
 }
+

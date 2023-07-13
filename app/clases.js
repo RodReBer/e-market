@@ -5,11 +5,20 @@ class Sistema {
     this.recuperarUsuarios();
   }
 
+    registrosPorNombre(palabra) {
+    return this.listaProductos.filter((producto) => producto.nombreProducto.toLowerCase().includes(palabra));
+  }
+  registrosPorId(id) {
+    return this.listaProductos.filter((producto) => producto.id == id);
+  }
+
   ordenarPorPrecio() {
     this.listaProductos.sort();
   }
 
-  darProductos() {
+  async darProductos() {
+    const response = await fetch("./productos.json");
+    this.listaProductos = await response.json();
     return this.listaProductos;
   }
 
@@ -66,9 +75,7 @@ class Sistema {
   }
   /*-----Usuarios-----*/
 
-  agregarProducto(unProducto) {
-    this.listaProductos.push(unProducto);
-  }
+
   borrarProducto(unProducto) {
     this.listaProductos = this.listaProductos.filter(
       (p) => p.id !== unProducto.id
@@ -99,12 +106,14 @@ class Usuario {
 }
 
 class Producto {
-  constructor(nombreProducto, idProducto, categoriaProducto, precioProducto, stockProducto) {
-    this.nombreProducto = nombreProducto;
+  constructor(idProducto, nombreProducto, categoriaProducto, precioProducto, stockProducto, unaImagen) {
     this.idProducto = idProducto;
+    this.nombreProducto = nombreProducto;
     this.categoriaProducto = categoriaProducto;
     this.precioProducto = precioProducto;
     this.stockProducto = stockProducto;
+    this.unaImagen = unaImagen;
+
   }
   toString() {
     return this.nombreProducto + " id: " + this.idProducto + " precio: " + this.precioProducto;

@@ -21,6 +21,19 @@ a {
 ul {
   list-style: none;
 }
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#sectionProductos{
+  width: 100% !important;
+}
 
 @mixin flex-center {
   display: flex;

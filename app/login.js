@@ -11,6 +11,12 @@ function inicio() {
 function ingresarUsuario(sistema) {
     let formulario = document.getElementById("formLogin");
     if (formulario.reportValidity()) {
-        sistema.estaUsuario(document.getElementById("Usuario").value, document.getElementById("contraseña").value) ? window.location.href = '../index.html' : console.log("Datos incorrectos");
+        sistema.estaUsuario(document.getElementById("Usuario").value, document.getElementById("contraseña").value) ? window.location.href = '../index.html' : 
+        Swal.fire({
+            title: "Información incorrecta",
+            text: "Ingrese la información nuevamente",
+            icon: "error",
+            confirmButtonText: "Aceptar",
+          });
     }
 }

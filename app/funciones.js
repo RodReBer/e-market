@@ -15,6 +15,7 @@ function inicio() {
   //     comprarProducto(sistema)
   // });
 }
+
 //cargar por primera vez
 function cargarProductos(productos) {
   let divProductos = document.getElementById("sectionProductos");
@@ -33,10 +34,10 @@ function cargarProductos(productos) {
     for (const producto of productos) {
       divProductos.innerHTML += `
             <div class="card" style="width: 18rem;">
-            <img src="assets/img/${producto.unaImagen}" class="card-img-top" alt="...">
+            <img src="assets/img/${producto.imagen}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">${producto.nombreProducto}</h5>
-              <p class="card-text">${producto.precioProducto}</p>
+              <h5 class="card-title">${producto.nombre}</h5>
+              <p class="card-text">${producto.precio}</p>
               <a href="#" class="btn btn-primary botonAgregar" data-id="${producto.id}">Agregar al carrito</a>          </div>
           </div>
         `;
@@ -55,6 +56,15 @@ function cargarProductos(productos) {
       console.log(producto)
       // Agregamos el registro (producto) a nuestro carrito
       carrito.agregarProductoCarrito(producto);
+      Toastify({
+        text: `${producto.nombre} fue agregado al carrito`,
+        position: "center",
+        className: "info",
+        gravity: "bottom",
+        style: {
+          background: "linear-gradient(to right, blue, red)",
+        },
+      }).showToast();
     });
   }
 }

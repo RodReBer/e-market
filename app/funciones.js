@@ -53,18 +53,8 @@ function cargarProductos(productos) {
       const id = Number(boton.dataset.id);
       // Con ese ID, consultamos a nuestra base de datos por el producto
       const producto = sistema.registrosPorId(id);
-      console.log(producto)
       // Agregamos el registro (producto) a nuestro carrito
-      carrito.agregarProductoCarrito(producto);
-      Toastify({
-        text: `${producto.nombre} fue agregado al carrito`,
-        position: "center",
-        className: "info",
-        gravity: "bottom",
-        style: {
-          background: "linear-gradient(to right, blue, red)",
-        },
-      }).showToast();
+      carrito.agregarProductoCarrito(producto[0]);
     });
   }
 }

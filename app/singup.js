@@ -21,7 +21,7 @@ function crearCuenta(sistema) {
             case espacio(nombre):
                 Swal.fire({
                     title: "Su nombre no puede empezar con espacios",
-                    text: "¡Su compra ha sido realizada con éxito!",
+                    text: "¡Ingrese su nombre de nuevo!",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                   });                valido = false;
@@ -29,7 +29,7 @@ function crearCuenta(sistema) {
             case espacio(apellido):
                 Swal.fire({
                     title: "El apellido no puede empezar con espacios",
-                    text: "¡Su compra ha sido realizada con éxito!",
+                    text: "¡Ingrese su apellido de nuevo!",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                   });
@@ -38,7 +38,7 @@ function crearCuenta(sistema) {
             case espacio(usuario):
                 Swal.fire({
                     title: "El usuario no puede empezar con espacios",
-                    text: "¡Su compra ha sido realizada con éxito!",
+                    text: "¡Ingrese su usuario de nuevo!",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                   });

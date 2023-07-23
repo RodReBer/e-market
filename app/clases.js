@@ -16,12 +16,6 @@ class Sistema {
     this.listaProductos.sort();
   }
 
-  async darProductos() {
-    const response = await fetch("./app/productos.json");
-    this.listaProductos = await response.json();
-    return this.listaProductos;
-  }
-
   darUsuarios() {
     return this.listaUsuarios;
   }
@@ -47,16 +41,12 @@ class Sistema {
     }
     return Usuario;
   }
-
-  /*-----Usuarios-----*/
-  //use el localStorage porque queria testear si funcionaban todas las funcionalidades jajajaj, me tenia loco sino con el debugger :)
   guardarUsuarios() {
     localStorage.setItem('listaUsuarios', JSON.stringify(this.listaUsuarios));
   }
   agregarUsuario(unUsuario) {
     this.listaUsuarios.push(unUsuario);
     this.guardarUsuarios();
-    console.log('Usuario agregado:', unUsuario);
   }
   recuperarUsuarios() {
     const listaUsuariosString = localStorage.getItem('listaUsuarios');
@@ -73,9 +63,6 @@ class Sistema {
     }
     return flag;
   }
-  /*-----Usuarios-----*/
-
-
   borrarProducto(unProducto) {
     this.listaProductos = this.listaProductos.filter(
       (p) => p.id !== unProducto.id
@@ -91,7 +78,6 @@ class Sistema {
     return cant;
   }
 }
-
 class Usuario {
   constructor(elNombreUsuario, elApellido, laCedula, laContraseña, elUsuario) {
     this.nombre = elNombreUsuario;
@@ -128,7 +114,12 @@ class Carrito {
     this.totalProductos = 0;
     this.listar();
   }
-  
+  vaciar() {
+    this.carrito = [];
+    localStorage.removeItem("carrito");
+    this.listar();
+  }
+
   listar() {
     this.total = 0;
     this.totalProductos = 0;
@@ -143,23 +134,25 @@ class Carrito {
             <a href="#" data-id="${producto.id}" class="btn btnQuitar">Quitar del carrito</a>
         </div>
     `;
+
       this.total += producto.precio * producto.cantidad;
       this.totalProductos += producto.cantidad;
     }
-    // if (this.totalProductos > 0) {
-    //   botonComprar.classList.remove("oculto"); 
-    // } else {
-    //   botonComprar.classList.add("oculto"); 
-    // }
+    divCarrito.innerHTML += `<button id="botonComprar" class="btn">Comprar</button>`;
+    if (this.totalProductos > 0) {
+      botonComprar.classList.remove("oculto");
+    } else {
+      botonComprar.classList.add("oculto");
+    }
     const botonesQuitar = document.querySelectorAll(".btnQuitar");
     for (const boton of botonesQuitar) {
       boton.onclick = (event) => {
         event.preventDefault();
-        this.quitar(Number(boton.dataset.id));
+        this.quitar(boton.dataset.id);
       };
     }
-    // spanCantidadProductos.innerText = this.totalProductos;
-    // spanTotalCarrito.innerText = this.total;
+     document.getElementById("cantidadProductos").innerText =  "Cantidad de productos: "+this.totalProductos;
+     document.getElementById("totalCarrito").innerText =+this.total;
   }
 
   quitar(id) {
@@ -171,6 +164,17 @@ class Carrito {
     }
     localStorage.setItem("carrito", JSON.stringify(this.carrito));
     this.listar();
+    document.getElementById("botonComprar").addEventListener("click", (event) => {
+      event.preventDefault();
+      Swal.fire({
+        title: "Su pedido está en camino",
+        text: "¡Su compra ha sido realizada con éxito!",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+      });
+      // Vacíamos el carrito
+      carrito.vaciar();
+    });
   }
 
   estaEnCarrito({ id }) {
@@ -195,5 +199,19 @@ class Carrito {
         background: "red",
       },
     }).showToast();
+    document.getElementById("botonComprar").addEventListener("click", (event) => {
+      event.preventDefault();
+      Swal.fire({
+        title: "Su pedido está en camino",
+        text: "¡Su compra ha sido realizada con éxito!",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+      });
+      // Vacíamos el carrito
+      this.vaciar();
+    });
   }
+  
 }
+// `https://api.mercadolibre.com/sites/MLA/search?category=CATEGORIA&limmimt=LIMITE&offset=OFFSET`
+// `https://api.mercadolibre.com/sites/MLA/search?category=CATEGORIA&limmimt=LIMITE&offset=OFFSET&q=QUERY`

@@ -19,15 +19,29 @@ function crearCuenta(sistema) {
         let valido = true;
         switch (valido) {
             case espacio(nombre):
-                console.log("El nombre no puede empezar con espacios");
-                valido = false;
+                Swal.fire({
+                    title: "Su nombre no puede empezar con espacios",
+                    text: "¡Su compra ha sido realizada con éxito!",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                  });                valido = false;
                 break;
             case espacio(apellido):
-                console.log("El apellido no puede empezar con espacios")
+                Swal.fire({
+                    title: "El apellido no puede empezar con espacios",
+                    text: "¡Su compra ha sido realizada con éxito!",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                  });
                 valido = false;
                 break;
             case espacio(usuario):
-                console.log("El usuario no puede empezar con espacios")
+                Swal.fire({
+                    title: "El usuario no puede empezar con espacios",
+                    text: "¡Su compra ha sido realizada con éxito!",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                  });
                 valido = false
                 break;
         }

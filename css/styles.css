@@ -4,11 +4,18 @@
   box-sizing: border-box;
 }
 
+#cantidadProductos {
+  font-size: 20px;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
 body {
   background-color: #ebebeb;
 }
 
 a {
+  color: black;
   text-decoration: none;
 }
 
@@ -30,6 +37,68 @@ ul {
 
 #sectionProductos {
   width: 100% !important;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 400px !important;
+}
+.card img {
+  max-width: 150px;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.carrito-title {
+  font-size: 40px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: capitalize;
+}
+
+.btn {
+  color: white;
+  background-color: #73acd2;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid #73acd2;
+  margin: 10px auto;
+  display: block;
+  text-align: center;
+}
+
+.oculto {
+  display: none;
+}
+
+.btn:hover {
+  border: 1px solid white;
+}
+
+.btnQuitar {
+  display: inline-block;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.productoCarrito {
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  margin-bottom: 10px;
+  line-height: 24px;
+}
+
+.productoCarrito h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  text-transform: capitalize;
 }
 
 /*Start header*/

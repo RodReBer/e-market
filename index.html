@@ -42,7 +42,7 @@
       src="https://kit.fontawesome.com/9e08149179.js"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <title>Mercado-Phone</title>
   </head>
 
   <body>
@@ -53,7 +53,7 @@
         <div class="container-search">
           <div class="container-search__container-logo">
             <a href="/index.html"
-              ><img src="assets/img/logo.webp" alt="logo" />Mercado autos</a
+              ><img src="assets/img/logo.webp" alt="logo" />Mercado-Phone</a
             >
           </div>
           <form
@@ -78,7 +78,7 @@
                 ></i>
               </button>
               <button
-                class="container-search__form-header__buttons__button__cart btn btn-primary"
+                class="container-search__form-header__buttons__button__cart btn-primary"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasRight"
@@ -126,15 +126,6 @@
             id="navbarNavAltMarkup"
           >
             <ul class="items navbar-nav">
-              <a href="" class="nav-link">
-                <li class="items__item" id="vehiculos">Veh&iacute;culos</li>
-              </a>
-              <a href="" class="nav-link" id="celulares">
-                <li class="items__item">Celulares</li>
-              </a>
-              <a href="" class="nav-link">
-                <li class="items__item" id="alimentos">Deportes</li>
-              </a>
               <a href="./pages/login.html" class="nav-link">
                 <li class="items__item">Iniciar sesi&oacute;n</li>
               </a>
@@ -154,7 +145,7 @@
       aria-labelledby="offcanvasRightLabel"
     >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Mi carrito</h5>
+        <h5 class="offcanvas-title carrito-title" id="offcanvasRightLabel">Mi carrito</h5>
         <button
           type="button"
           class="btn-close"
@@ -162,26 +153,17 @@
           aria-label="Close"
         ></button>
       </div>
+      <h1>
+        <span id="cantidadProductos">0</span>
+      </h1>
       <div class="offcanvas-body" id="divCarro">
-        ...
-
-
-
-
+        Carrito de compras vacio
       </div>
+      <h3>Total: $<span id="totalCarrito">0</span></h3>
     </div>
     <!-- Start main -->
     <main class="main">
       <section class="filter-container">
-        <section class="filter-sort">
-          <label for="sort">Sort by:</label>
-          <select name="sort" id="sort">
-            <option value="lth">Price: Low to High</option>
-            <option value="htl">Price: High to Low</option>
-            <option value="AZ">A-Z</option>
-            <option value="ZA">Z-A</option>
-          </select>
-        </section>
         <section class="container-main" id="sectionProductos">
           <!--productos-->
         </section>
